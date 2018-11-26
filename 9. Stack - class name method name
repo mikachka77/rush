@@ -1,0 +1,19 @@
+/*
+Выведенное сообщение должно содержать имя класса, метод которого ВЫЗВАЛ метод log.
+Выведенное сообщение должно содержать имя метода, который ВЫЗВАЛ метод log.
+*/
+import java.lang.String;
+import java.lang.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        log("In main method");
+    }
+
+    public static void log(String s) {
+        //напишите тут ваш кодs
+        String nameClass = Thread.currentThread().getStackTrace()[1].getClassName();
+        String nameMethod = Thread.currentThread().getStackTrace()[1].getMethodName();
+        System.out.println(nameClass + ": " + nameMethod + ": " + s);
+    }
+}
